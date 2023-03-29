@@ -1,13 +1,44 @@
 <template>
-  <h1>Sup dude it's the houses page.</h1>
-  <h2 class="text-danger">You should probably write the houses page now</h2>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 col-md-4">
+        <div class="elevation-3 rounded bg-light border border-1 border-dark">
+          <img src="" alt="">
+          <div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 
 <script>
+import { onMounted, computed } from 'vue';
+import { AppState } from '../AppState.js';
+import { housesService } from "../services/HousesService.js";
+import { logger } from '../utils/Logger.js';
+import Pop from '../utils/Pop.js';
+
 export default {
   setup() {
-    return {}
+    async function getAllHouses() {
+      try {
+        await housesService.getAllHouses()
+      } catch (error) {
+        logger.error(error)
+        Pop.error(error.message)
+      }
+    }
+
+    onMounted(() => {
+      getAllHouses()
+    });
+
+    return {
+    }
   }
 }
 </script>
