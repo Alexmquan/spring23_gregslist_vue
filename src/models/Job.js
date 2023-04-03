@@ -1,18 +1,16 @@
 import { Profile } from "./Account.js"
 
-export class House {
+export class Job {
   constructor(data) {
     this.id = data.id
-    this.bedrooms = data.bedrooms
-    this.bathrooms = data.bathrooms
-    this.levels = data.levels
-    this.imgUrl = data.imgUrl
-    this.year = data.year
-    this.price = data.price
+    this.company = data.company
+    this.jobTitle = data.jobTitle
+    this.hours = data.hours
+    this.rate = data.rate
     this.description = data.description
-    this.price = data.price
     this.creatorId = data.creatorId
     this.seller = new Profile(data.seller)
     this.createdAt = new Date(data.createdAt)
+
   }
 }

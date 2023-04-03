@@ -60,7 +60,7 @@ export default {
   props: {
     car: {
       type: Car,
-      default: {}
+      required: true
     }
   },
   setup(props) {
